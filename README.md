@@ -4,6 +4,16 @@ Open-Source telnet/ssh BBS client.
 
 ## History
 
+### 1.5.0 (修改版自Rayer)
+
+* Release date : 2019.03.10
+* 增加了Google image search的功能。當選擇了一個以.jpg或者.jpeg為結尾的網址的時候，右鍵選單將會增加Search by Google Image.
+* 增加了貼上Tinyurl的功能。當拷貝一個網址時，且Telnet視窗內沒有選擇任何文字時，將會有Paste by TinyURL的選項。
+* 由於現在的XCode已經不支援10.6的Deployment Target，很遺憾的目前Deployment Target必須要至少macOS 10.12以上才能執行
+* 同樣原因，重新編譯後原因不明有一個小Bug : 當打開了複數個BBS，滑鼠游標無法點選上面的BBS Tag，包含關閉視窗的X。請用快速鍵cmd + <- / cmd + -> / cmd + w來執行選擇左邊分頁/右邊分頁/關閉分頁的動作。
+
+感謝前人的contribution，也希望這個open source的BBS Client能一直傳承下去。
+
 ### 1.4.9
 
 * 修正短網址打不開的 regression
