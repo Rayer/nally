@@ -1,6 +1,3 @@
 os: osx
 language: objective-c
 osx_image: xcode9
-xcode_project: Nally.xcodeproj # path to your xcodeproj folder
-xcode_scheme: Nally - Release
-xcode_destination: platform=macOS
