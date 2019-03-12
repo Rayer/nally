@@ -151,6 +151,8 @@ static YLContextualMenuManager *gSharedInstance;
         [item setTarget: self];
         [items addObject: item];
     };
+
+    NSArray* searchImageSuffix = @[@".jpg", @".jpeg", @".gif", @".tiff", @".png"];
     
     if ([shortURL hasPrefix: @"sm"] && [shortURL length] <= 10 && isAllDigit([shortURL substringFromIndex: 2])) {
         addShortenedURLMenuItem([@"NicoNico/" stringByAppendingString: shortURL],
@@ -161,7 +163,14 @@ static YLContextualMenuManager *gSharedInstance;
     } else if ([shortURL hasPrefix: @"mid="] && [shortURL length] <= 12 && isAllDigit([shortURL substringFromIndex: 4])) {
         addShortenedURLMenuItem([@"pixiv_member/" stringByAppendingString: [shortURL substringFromIndex: 4]],
                                 [@"http://www.pixiv.net/member.php?id=" stringByAppendingString: [shortURL substringFromIndex: 4]]);
-    } else if ([shortURL hasSuffix:@".jpg"] || [shortURL hasSuffix:@".jpeg"]) {
+    } else if (^(NSArray* searchImageSuffix) {
+        for(NSString* suffix in searchImageSuffix) {
+            if([shortURL hasSuffix:suffix])
+                return TRUE;
+        }
+        return FALSE;
+    }(searchImageSuffix))
+    {
         addShortenedURLMenuItem(@"Image search by GOOGLE", [@"https://www.google.com/searchbyimage?&image_url=" stringByAppendingString: shortURL]);
     } else if ([shortURL length] == 4) {
         addShortenedURLMenuItem([@"ppt.cc/" stringByAppendingString: shortURL],
