@@ -283,7 +283,7 @@ static YLContextualMenuManager *gSharedInstance;
 
 -(IBAction)imgur:(id)sender {
     NSData* data = [sender representedObject];
-    [[ImgurAnonymousAPIClient client] uploadImageData:data withFilename:@"nally-uploaded" completionHandler:^(NSURL *imgurURL, NSError *error) {
+    [[ImgurAnonymousAPIClient sharedClient] uploadImageData:data withFilename:@"nally-uploaded" completionHandler:^(NSURL *imgurURL, NSError *error) {
         if(error) {
             NSLog(@"Error! %@", error);
         }
