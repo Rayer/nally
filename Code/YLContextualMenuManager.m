@@ -8,6 +8,7 @@
 
 #import "YLContextualMenuManager.h"
 #import "YLController.h"
+#import "ImgurAnonymousAPIClient.h"
 
 static YLContextualMenuManager *gSharedInstance;
 
@@ -45,20 +46,13 @@ static YLContextualMenuManager *gSharedInstance;
 @implementation NSString (UJStringUrlCategory)
 - (BOOL) UJ_isUrlLike
 {
-    NSArray *comps = [self componentsSeparatedByString:@"."];
-    int count = 0;
-    for (NSString *comp in comps)
-    {
-        if ([comp length])
-            count++;
-        else
-            return NO;
-        
-        if (count > 1)
-            return YES;
+    NSURL *url = [NSURL URLWithString:self];
+    if (url && url.scheme && url.host) {
+        return YES;
     }
     return NO;
 }
+
 
 - (NSString *) UJ_protocolPrefixAppendedUrlString
 {
@@ -192,17 +186,27 @@ static YLContextualMenuManager *gSharedInstance;
     } else {
         // selectedString length == 0
         //NSPasteboardTypeUrl is supported after 10.13, so use String to compitiable 10.12
-        NSString* clippedString = [[NSPasteboard generalPasteboard] stringForType:NSPasteboardTypeString];
-        NSURL *url = [NSURL URLWithString:clippedString];
-        if (url && url.scheme && url.host)
-        {
+        NSPasteboard* pasteBoard = [NSPasteboard generalPasteboard];
+        NSString* clippedString = [pasteBoard stringForType:NSPasteboardTypeString];
+        
+        if([clippedString UJ_isUrlLike]) {
             NSLog(@"%@ is a valid URL", clippedString);
             item = [[[NSMenuItem alloc] initWithTitle: NSLocalizedString(@"Paste tinyurl", @"Menu") action: @selector(tinyurl:) keyEquivalent: @""] autorelease];
             [item setTarget: self];
             [item setRepresentedObject:clippedString];
             [items addObject:item];
         }
-
+        
+        if([pasteBoard dataForType:NSPasteboardTypePNG] || [pasteBoard dataForType:NSPasteboardTypeTIFF] ) {
+            NSData* dataImgPng = [pasteBoard dataForType:NSPasteboardTypePNG];
+            NSData* dataImgTiff = [pasteBoard dataForType:NSPasteboardTypeTIFF];
+            //NSString* imgName = [pasteBoard stringForType:NSPasteboardTypeString];
+            item = [[[NSMenuItem alloc] initWithTitle:@"Paste image to Imgur" action:@selector(imgur:) keyEquivalent:@""] autorelease];
+            [item setTarget:self];
+            [item setRepresentedObject:dataImgPng != nil ? dataImgPng : dataImgTiff];
+            [items addObject:item];
+        }
+        
     }
     return items;
 }
@@ -266,6 +270,17 @@ static YLContextualMenuManager *gSharedInstance;
     
     YLController *controller = [NSApp delegate];
     [[controller telnetView] insertText:tinyurlResult];
+}
+
+-(IBAction)imgur:(id)sender {
+    NSData* data = [sender representedObject];
+    [[ImgurAnonymousAPIClient client] uploadImageData:data withFilename:@"nally-uploaded" completionHandler:^(NSURL *imgurURL, NSError *error) {
+        if(error) {
+            NSLog(@"Error! %@", error);
+        }
+        YLController *controller = [NSApp delegate];
+        [[controller telnetView] insertText:[imgurURL absoluteString]];
+    }];
 }
 
 @end

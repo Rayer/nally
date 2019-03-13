@@ -14,6 +14,7 @@
 		079E9BCA0F08C4820089C9E2 /* YLFloatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 079E9BC90F08C4820089C9E2 /* YLFloatingView.m */; };
 		07B370690D6840600035E87D /* YLImagePreviewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B370680D6840600035E87D /* YLImagePreviewer.m */; };
 		07B73D900E5816FF00CC97D3 /* YLPluginLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B73D8F0E5816FF00CC97D3 /* YLPluginLoader.m */; };
+		6DE3C78FD8E3147F353D63F0 /* Pods_Nally.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56B94F13F4BCFA15C268E900 /* Pods_Nally.framework */; };
 		850711AB0CA7A347005F4734 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850711AA0CA7A347005F4734 /* ApplicationServices.framework */; };
 		85137B330D02192800833909 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 85137B320D02192800833909 /* Credits.rtf */; };
 		85145AA10AB40053009FC710 /* YLTelnet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 85145AA00AB40053009FC710 /* YLTelnet.mm */; };
@@ -65,6 +66,7 @@
 		8DCEE14A182CDF24008A9259 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCEE146182CDF24008A9259 /* SSKeychain.m */; };
 		8DCEE14B182CDF24008A9259 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCEE148182CDF24008A9259 /* SSKeychainQuery.m */; };
 		8DCEE14D182CDF3D008A9259 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DCEE14C182CDF3D008A9259 /* Security.framework */; };
+		C62D093C1C4899D9029FB960 /* Pods_TextSuiteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92876B663639DDA5C4AC0062 /* Pods_TextSuiteTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -100,6 +102,8 @@
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		56B94F13F4BCFA15C268E900 /* Pods_Nally.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nally.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BBF85D09A0AF6BAF42E2DAF /* Pods-TextSuiteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextSuiteTests.release.xcconfig"; path = "Target Support Files/Pods-TextSuiteTests/Pods-TextSuiteTests.release.xcconfig"; sourceTree = "<group>"; };
 		7119D1820EE7DC46003F98C8 /* Nally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nally.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71585BD70EFE06C200E04E4E /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_CN; path = zh_CN.lproj/Localizable.strings; sourceTree = "<group>"; };
 		71585BD80EFE086B00E04E4E /* zh_CN */ = {isa = PBXFileReference; fileEncoding = 2415919360; lastKnownFileType = text.plist.strings; name = zh_CN; path = zh_CN.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -172,6 +176,10 @@
 		8DCEE147182CDF24008A9259 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
 		8DCEE148182CDF24008A9259 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
 		8DCEE14C182CDF3D008A9259 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		92876B663639DDA5C4AC0062 /* Pods_TextSuiteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextSuiteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08B57BD7DE6A724807935E5 /* Pods-Nally.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nally.release.xcconfig"; path = "Target Support Files/Pods-Nally/Pods-Nally.release.xcconfig"; sourceTree = "<group>"; };
+		BE253C9002AD4C44181B4632 /* Pods-Nally.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nally.debug.xcconfig"; path = "Target Support Files/Pods-Nally/Pods-Nally.debug.xcconfig"; sourceTree = "<group>"; };
+		ED20D02CD762BDA0BA20E70E /* Pods-TextSuiteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextSuiteTests.debug.xcconfig"; path = "Target Support Files/Pods-TextSuiteTests/Pods-TextSuiteTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +187,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C62D093C1C4899D9029FB960 /* Pods_TextSuiteTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +200,7 @@
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				850711AB0CA7A347005F4734 /* ApplicationServices.framework in Frameworks */,
 				85B0177212913CF3004F06E4 /* PSMTabBarControl.framework in Frameworks */,
+				6DE3C78FD8E3147F353D63F0 /* Pods_Nally.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +274,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				8540FE4812AB8BA3000FE1D6 /* TextSuiteTests-Info.plist */,
+				B5D2BCA3E567EC1C3EBA8C09 /* Pods */,
 			);
 			name = MacBlueTelnet;
 			sourceTree = "<group>";
@@ -307,6 +318,8 @@
 				8DCEE14C182CDF3D008A9259 /* Security.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+				56B94F13F4BCFA15C268E900 /* Pods_Nally.framework */,
+				92876B663639DDA5C4AC0062 /* Pods_TextSuiteTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -410,6 +423,18 @@
 			path = SSKeychain;
 			sourceTree = "<group>";
 		};
+		B5D2BCA3E567EC1C3EBA8C09 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE253C9002AD4C44181B4632 /* Pods-Nally.debug.xcconfig */,
+				A08B57BD7DE6A724807935E5 /* Pods-Nally.release.xcconfig */,
+				ED20D02CD762BDA0BA20E70E /* Pods-TextSuiteTests.debug.xcconfig */,
+				6BBF85D09A0AF6BAF42E2DAF /* Pods-TextSuiteTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -417,6 +442,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8540FE4B12AB8BA3000FE1D6 /* Build configuration list for PBXNativeTarget "TextSuiteTests" */;
 			buildPhases = (
+				84B58DB258919B706CABEE6E /* [CP] Check Pods Manifest.lock */,
 				8540FE4212AB8BA3000FE1D6 /* Resources */,
 				8540FE4312AB8BA3000FE1D6 /* Sources */,
 				8540FE4412AB8BA3000FE1D6 /* Frameworks */,
@@ -435,11 +461,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Nally" */;
 			buildPhases = (
+				CC596836F47D09C64216B596 /* [CP] Check Pods Manifest.lock */,
 				8540F7350CEB4435003B17D1 /* CopyFiles */,
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				71BFE93910550718005ACFF5 /* ShellScript */,
+				B4F75CFB0106E214D2585615 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -473,6 +501,7 @@
 				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* MacBlueTelnet */;
+			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -530,6 +559,28 @@
 			shellPath = /bin/sh;
 			shellScript = "# Extract English strings (use this to check if you added new strings to your nibs)\n\n\n\nfor LANG in zh_TW zh_CN; do\n  for NIB in MainMenu Preferences; do\n    LPROJ_DIR=${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/${LANG}.lproj\n    ibtool --export-strings-file Resources/English.lproj/${NIB}.English.strings Resources/English.lproj/${NIB}.xib\n    ibtool --import-strings-file Resources/${LANG}.lproj/${NIB}.${LANG}.strings Resources/English.lproj/${NIB}.xib --write ${LPROJ_DIR}/${NIB}.full.xib\n    ibtool --compile ${LPROJ_DIR}/${NIB}.nib ${LPROJ_DIR}/${NIB}.full.xib\n    rm -rf ${LPROJ_DIR}/${NIB}.full.xib\n  done\ndone\n\n# Remove .svn\nfind ${BUILT_PRODUCTS_DIR}/Nally.app/Contents/Resources -type d -name \".svn\" | xargs rm -rf\n\n# Remove .DS_Store\nfind ${BUILT_PRODUCTS_DIR}/Nally.app -name \".DS_Store\" -delete\n\n# Remove Headers\nfind ${BUILT_PRODUCTS_DIR}/Nally.app/Contents/Frameworks -name \"Headers\" | xargs rm -rf\n";
 		};
+		84B58DB258919B706CABEE6E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TextSuiteTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8540FE4512AB8BA3000FE1D6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -542,6 +593,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		B4F75CFB0106E214D2585615 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nally/Pods-Nally-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/ImgurAnonymousAPIClient/ImgurAnonymousAPIClient.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImgurAnonymousAPIClient.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Nally/Pods-Nally-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC596836F47D09C64216B596 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Nally-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -648,6 +741,7 @@
 /* Begin XCBuildConfiguration section */
 		8540FE4912AB8BA3000FE1D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED20D02CD762BDA0BA20E70E /* Pods-TextSuiteTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -676,6 +770,7 @@
 		};
 		8540FE4A12AB8BA3000FE1D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BBF85D09A0AF6BAF42E2DAF /* Pods-TextSuiteTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -704,6 +799,7 @@
 		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE253C9002AD4C44181B4632 /* Pods-Nally.debug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
@@ -729,6 +825,7 @@
 		};
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A08B57BD7DE6A724807935E5 /* Pods-Nally.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -760,7 +857,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_PREFIX_HEADER = "";
 				INFOPLIST_PREPROCESS = NO;
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Nally;
 				SDKROOT = macosx;
@@ -774,7 +871,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_PREFIX_HEADER = "";
 				INFOPLIST_PREPROCESS = NO;
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = Nally;
 				SDKROOT = macosx;
 			};
