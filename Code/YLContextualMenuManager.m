@@ -289,6 +289,8 @@ static YLContextualMenuManager *gSharedInstance;
         }
         YLController *controller = [NSApp delegate];
         [[controller telnetView] insertText:[imgurURL absoluteString]];
+        //It will clear contents so it won't be paste again
+        [[NSPasteboard generalPasteboard] clearContents];
     }];
 }
 
