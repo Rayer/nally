@@ -8,7 +8,7 @@ Open-Source telnet/ssh BBS client.
 
 Release date : 2019.03.13
 
-####對使用者來說
+#### 對使用者來說
 
 * 增加了更多的Search image by Google的格式，現在`.tiff`, `.png`以及`.gif`都可以被image search了。
 * 現在支援了paste to imgur，只要使用傳統的Mac剪貼螢幕到剪貼簿的快速鍵(`shift-ctrl-cmd-3`跟`shift-ctrl-cmd-4`)剪貼下來的圖案，現在可以從右鍵選單直接送上imgur並且回傳網址。
@@ -16,7 +16,8 @@ Release date : 2019.03.13
 	* 按下Post to Imgur以後需要一點時間網址才會傳回來，大概一兩秒，這段時間bbs view仍然可以操作...會造成貼到意料之外的地方。
 	* 但是我覺得直接block讓他轉圈圈也不是好主意，沒辦法。
 
-####對開發者來說
+#### 對開發者來說
+
 * 增加了CocoaPods的支援。
 * 增加了TravisCI的支援，但是由於CocoaPods加入以後組態搞不定，所以目前還是壞掉的狀態。
 * 現在應該可以在XCode10底下編譯了。SDK10.12~10.14都測過，應該沒啥問題。
