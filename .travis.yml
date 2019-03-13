@@ -1,4 +1,6 @@
 os: osx
 language: objective-c
 osx_image: xcode10
-script: xcodebuild -workspace -scheme 'Nally-Release'
+script: 
+- xcodebuild -workspace -list
+- xcodebuild -workspace -scheme 'Nally-Release'
