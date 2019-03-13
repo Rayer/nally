@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Scheme version = "1.7">
-
+<Scheme
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -53,7 +53,6 @@
       </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
-
       <LocationScenarioReference
          identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
          referenceType = "1">
