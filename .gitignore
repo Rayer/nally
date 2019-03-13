@@ -9,3 +9,5 @@ build/*
 *xcodeproj/xcuserdata
 *~
 .svn
+Podfile.lock
+Pods/
