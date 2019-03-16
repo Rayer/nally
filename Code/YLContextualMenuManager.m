@@ -207,22 +207,42 @@ static YLContextualMenuManager *gSharedInstance;
 
         NSPasteboard* pasteBoard = [NSPasteboard generalPasteboard];
         NSString* clippedString = [pasteBoard stringForType:NSPasteboardTypeString];
-        
+
+
         if([clippedString UJ_isUrlLike]) {
             item = [[[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Paste TinyURL", @"Menu") action:@selector(tinyurl:) keyEquivalent:@""] autorelease];
             [item setTarget: self];
             [item setRepresentedObject:clippedString];
             [items addObject:item];
+            return items;
         }
-        
-        if([pasteBoard dataForType:NSPasteboardTypePNG] || [pasteBoard dataForType:NSPasteboardTypeTIFF] ) {
+
+        NSString *filePath = [pasteBoard stringForType:@"public.file-url"]; //In 10.13, it is [pasteBoard stringForType:NSPasteboardTypeFileURL]
+
+        if (filePath) {
+            //Check if it is image
+            NSURL *url = [NSURL URLWithString:filePath];
+            NSImage *img = [[[NSImage alloc] initWithContentsOfURL:url] autorelease];
+            if (img) {
+                NSData *tiffData = [img TIFFRepresentation];
+                item = [[[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Paste image to Imgur", @"Paste image to Imgur") action:@selector(imgur:) keyEquivalent:@""] autorelease];
+                [item setTarget:self];
+                [item setRepresentedObject:tiffData];
+                [items addObject:item];
+                return items;
+            }
+
+        }
+
+
+        if ([pasteBoard dataForType:NSPasteboardTypePNG] || [pasteBoard dataForType:NSPasteboardTypeTIFF]) {
             NSData* dataImgPng = [pasteBoard dataForType:NSPasteboardTypePNG];
             NSData* dataImgTiff = [pasteBoard dataForType:NSPasteboardTypeTIFF];
-            //NSString* imgName = [pasteBoard stringForType:NSPasteboardTypeString];
-            item = [[[NSMenuItem alloc] initWithTitle:@"Paste image to Imgur" action:@selector(imgur:) keyEquivalent:@""] autorelease];
+            item = [[[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Paste image to Imgur", @"Paste image to Imgur") action:@selector(imgur:) keyEquivalent:@""] autorelease];
             [item setTarget:self];
             [item setRepresentedObject:dataImgPng != nil ? dataImgPng : dataImgTiff];
             [items addObject:item];
+            return items;
         }
         
     }
@@ -270,7 +290,7 @@ static YLContextualMenuManager *gSharedInstance;
 - (IBAction) tinyurl: (id)sender
 {
     [self setAnotherPasteStillOnGoing:YES];
-    NSAlert *alert = [NSAlert new];
+    NSAlert *alert = [[NSAlert new] autorelease];
     [alert setMessageText:NSLocalizedString(@"Converting URL to TinyURL...", @"Converting URL to TinyURL...")];
     [alert setInformativeText:NSLocalizedString(@"It may take several seconds, please wait", @"It may take several seconds, please wait")];
     [alert addButtonWithTitle:@""];
@@ -304,7 +324,8 @@ static YLContextualMenuManager *gSharedInstance;
 -(IBAction)imgur:(id)sender {
     [self setAnotherPasteStillOnGoing:YES];
     NSData* data = [sender representedObject];
-    NSAlert *alert = [NSAlert new];
+
+    NSAlert *alert = [[NSAlert new] autorelease];
     [alert setMessageText:NSLocalizedString(@"Pasting to imgur...", @"Pasting to imgur...")];
     [alert setInformativeText:NSLocalizedString(@"It may take several seconds, please wait", @"It may take several seconds, please wait")];
     [alert addButtonWithTitle:@""];
