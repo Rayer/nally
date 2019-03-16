@@ -35,3 +35,8 @@
 
 /* Preferences */
 "Connection" = "连接";
+"Paste TinyURL" = "Paste TinyURL";
+"It may take several seconds, please wait" = "It may take several seconds, please wait";
+"Pasting to imgur..." = "Pasting to imgur...";
+"Unable to paste now..." = "Unable to paste now...";
+"Converting URL to TinyURL..." = "Converting URL to TinyURL...";

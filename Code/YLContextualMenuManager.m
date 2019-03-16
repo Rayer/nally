@@ -23,7 +23,7 @@ static YLContextualMenuManager *gSharedInstance;
     NSMutableString *result = [NSMutableString string];
     int i;
     for (i = 0; i < [s length]; i++) {
-        unichar c = [s characterAtIndex: i];
+        unichar c = [s characterAtIndex:(NSUInteger) i];
         if (c >= '!' && c <= '~')
             [result appendString: [NSString stringWithCharacters: &c length: 1]];
     }
@@ -47,17 +47,13 @@ static YLContextualMenuManager *gSharedInstance;
 - (BOOL) UJ_isUrlLike
 {
     NSURL *url = [NSURL URLWithString:self];
-    if (url && url.scheme && url.host) {
-        return YES;
-    }
-    return NO;
+    return url && url.scheme && url.host;
 }
-
 
 - (NSString *) UJ_protocolPrefixAppendedUrlString
 {
-    NSArray *protocols = [NSArray arrayWithObjects:@"http://", @"https://", @"ftp://", @"telnet://",
-                          @"bbs://", @"ssh://", @"mailto:", nil];
+    NSArray *protocols = @[@"http://", @"https://", @"ftp://", @"telnet://",
+            @"bbs://", @"ssh://", @"mailto:"];
     for (NSString *p in protocols)
     {
         if ([self hasPrefix:p])
@@ -71,18 +67,24 @@ static YLContextualMenuManager *gSharedInstance;
 
 @implementation YLContextualMenuManager
 
-+ (YLContextualMenuManager *) sharedInstance 
+
+@synthesize anotherPasteStillOnGoing = _anotherPasteStillOnGoing;
+
++ (YLContextualMenuManager *)sharedInstance
 {
     return gSharedInstance ?: [[[YLContextualMenuManager alloc] init] autorelease];
 }
 
 - (id) init 
 {
+
+    [self setAnotherPasteStillOnGoing:NO];
     if (gSharedInstance) {
         [self release];
-    } else if ((gSharedInstance = [[super init] retain])) {
+    } else if ((gSharedInstance = (YLContextualMenuManager *) [[super init] retain])) {
         // ...
     }
+
     return gSharedInstance;
 }
 
@@ -117,7 +119,7 @@ static YLContextualMenuManager *gSharedInstance;
             if ([urls count] > 1)
                 title = NSLocalizedString(@"Open mutiple URLs", @"Open mutiple URLs");
             else if ([urls count] == 1)
-                title = [urls objectAtIndex: 0];
+                title = urls[0];
 
             if (_urlsToOpen)
                 [_urlsToOpen release];
@@ -160,9 +162,9 @@ static YLContextualMenuManager *gSharedInstance;
     } else if (^(NSArray* searchImageSuffix) {
         for(NSString* suffix in searchImageSuffix) {
             if([shortURL hasSuffix:suffix])
-                return TRUE;
+                return YES;
         }
-        return FALSE;
+        return NO;
     }(searchImageSuffix))
     {
         addShortenedURLMenuItem(@"Image search by GOOGLE", [@"https://www.google.com/searchbyimage?&image_url=" stringByAppendingString: shortURL]);
@@ -195,12 +197,19 @@ static YLContextualMenuManager *gSharedInstance;
     } else {
         // selectedString length == 0
         //NSPasteboardTypeUrl is supported after 10.13, so use String to compitiable 10.12
+
+        if ([self anotherPasteStillOnGoing]) {
+            item = [[[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Unable to paste now...", @"Unable to paste now...") action:@selector(nilSymbol) keyEquivalent:@""] autorelease];
+            [item setEnabled:NO];
+            [items addObject:item];
+            return items;
+        }
+
         NSPasteboard* pasteBoard = [NSPasteboard generalPasteboard];
         NSString* clippedString = [pasteBoard stringForType:NSPasteboardTypeString];
         
         if([clippedString UJ_isUrlLike]) {
-            NSLog(@"%@ is a valid URL", clippedString);
-            item = [[[NSMenuItem alloc] initWithTitle: NSLocalizedString(@"Paste tinyurl", @"Menu") action: @selector(tinyurl:) keyEquivalent: @""] autorelease];
+            item = [[[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Paste TinyURL", @"Menu") action:@selector(tinyurl:) keyEquivalent:@""] autorelease];
             [item setTarget: self];
             [item setRepresentedObject:clippedString];
             [items addObject:item];
@@ -252,7 +261,7 @@ static YLContextualMenuManager *gSharedInstance;
 {
     NSString *u = [sender representedObject];
     NSPasteboard *spb = [NSPasteboard pasteboardWithUniqueName];
-    [spb declareTypes: [NSArray arrayWithObject: NSStringPboardType] owner: self];
+    [spb declareTypes:@[NSStringPboardType] owner:self];
     [spb setString: u forType: NSStringPboardType];
     NSPerformService(@"Look Up in Dictionary", spb);
     
@@ -260,9 +269,16 @@ static YLContextualMenuManager *gSharedInstance;
 
 - (IBAction) tinyurl: (id)sender
 {
+    [self setAnotherPasteStillOnGoing:YES];
+    NSAlert *alert = [NSAlert new];
+    [alert setMessageText:NSLocalizedString(@"Converting URL to TinyURL...", @"Converting URL to TinyURL...")];
+    [alert setInformativeText:NSLocalizedString(@"It may take several seconds, please wait", @"It may take several seconds, please wait")];
+    [alert addButtonWithTitle:@""];
+    [alert setAlertStyle:NSAlertStyleInformational];
+    [alert beginSheetModalForWindow:[NSApp mainWindow] completionHandler:nil];
     NSString *u = [sender representedObject];
     NSString* APIRequestString = [@"http://tinyurl.com/api-create.php?url=" stringByAppendingString:u];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
     [request setURL:[NSURL URLWithString:APIRequestString]];
     [request setHTTPMethod:@"GET"];
     NSError *error = nil;
@@ -274,23 +290,38 @@ static YLContextualMenuManager *gSharedInstance;
         NSLog(@"Error getting %@, HTTP status code %li", APIRequestString, (long)[responseCode statusCode]);
         return;
     }
-    
-    NSString* tinyurlResult = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
-    
-    YLController *controller = [NSApp delegate];
+
+    //[[NSApp mainWindow] endSheet:alert.window];
+
+    NSString *tinyurlResult = [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
+
+    YLController *controller = (id) [NSApp delegate];
     [[controller telnetView] insertText:tinyurlResult];
+    [[NSApp mainWindow] endSheet:alert.window];
+    [self setAnotherPasteStillOnGoing:NO];
 }
 
 -(IBAction)imgur:(id)sender {
+    [self setAnotherPasteStillOnGoing:YES];
     NSData* data = [sender representedObject];
+    NSAlert *alert = [NSAlert new];
+    [alert setMessageText:NSLocalizedString(@"Pasting to imgur...", @"Pasting to imgur...")];
+    [alert setInformativeText:NSLocalizedString(@"It may take several seconds, please wait", @"It may take several seconds, please wait")];
+    [alert addButtonWithTitle:@""];
+    [alert setAlertStyle:NSAlertStyleInformational];
+    [alert beginSheetModalForWindow:[NSApp mainWindow] completionHandler:nil];
+
     [[ImgurAnonymousAPIClient sharedClient] uploadImageData:data withFilename:@"nally-uploaded" completionHandler:^(NSURL *imgurURL, NSError *error) {
         if(error) {
             NSLog(@"Error! %@", error);
         }
-        YLController *controller = [NSApp delegate];
+        YLController *controller = (id) [NSApp delegate];
         [[controller telnetView] insertText:[imgurURL absoluteString]];
+        [[NSApp mainWindow] endSheet:alert.window];
+        //[NSApp stopModal];
         //It will clear contents so it won't be paste again
         [[NSPasteboard generalPasteboard] clearContents];
+        [self setAnotherPasteStillOnGoing:NO];
     }];
 }
 

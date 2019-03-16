@@ -13,6 +13,9 @@
 {
     NSArray *_urlsToOpen;
 }
+
+@property bool anotherPasteStillOnGoing;
+
 + (YLContextualMenuManager *) sharedInstance ;
 - (id) init ;
 - (NSArray *) availableMenuItemForSelectionString: (NSString *)selectedString;
