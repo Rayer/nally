@@ -431,7 +431,6 @@
 				ED20D02CD762BDA0BA20E70E /* Pods-TextSuiteTests.debug.xcconfig */,
 				6BBF85D09A0AF6BAF42E2DAF /* Pods-TextSuiteTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

@@ -35,3 +35,9 @@
 
 /* Preferences */
 "Connection" = "連線";
+
+"Paste TinyURL" = "轉換成TinyURL";
+"It may take several seconds, please wait" = "這可能會需要幾秒，請稍待";
+"Pasting to imgur..." = "貼上imgur.com";
+"Unable to paste now..." = "目前無法貼上，其他動作進行中";
+"Converting URL to TinyURL..." = "正在轉換網址成TinyURL...";

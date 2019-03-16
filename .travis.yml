@@ -3,4 +3,4 @@ language: objective-c
 osx_image: xcode10
 script: 
 - xcodebuild -workspace Nally.xcworkspace -list
-- xcodebuild -workspace Nally.xcworkspace -scheme 'Nally-Release'
+- xcodebuild -workspace Nally.xcworkspace -scheme Nally
