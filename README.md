@@ -8,6 +8,14 @@ Open-Source telnet/ssh BBS client.
 
 ## History
 
+### 1.5.2
+
+Release date : 2019.03.17
+
+- 當貼上imgur或者試圖產生tinyurl時，會有一個視窗告訴你現在正在做甚麼以及防止在這動作完成以前繼續貼圖或者貼網址。
+- 現在可以直接cmd-c任何圖案以後直接貼上imgur了，同樣的按下右鍵選擇「貼上imgur」即可
+
+
 ### 1.5.1
 
 Release date : 2019.03.13
