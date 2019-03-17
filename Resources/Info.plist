@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.4.9</string>
+	<string>2.0.0</string>
 	<key>CFBundleIconFile</key>
 	<string>DragonBall.icns</string>
 	<key>CFBundleIdentifier</key>
@@ -21,7 +21,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.4.9</string>
+	<string>2.0.0</string>
 	<key>CFBundleSignature</key>
 	<string>naly</string>
 	<key>CFBundleURLTypes</key>
@@ -47,7 +47,7 @@
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.social-networking</string>
 	<key>LSMinimumSystemVersion</key>
-	<string>10.5.0</string>
+	<string>10.12.0</string>
 	<key>LSMinimumSystemVersionByArchitecture</key>
 	<dict>
 		<key>i386</key>
