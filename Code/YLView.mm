@@ -15,6 +15,7 @@
 #import "YLContextualMenuManager.h"
 #import "YLImagePreviewer.h"
 #import "YLTextSuite.h"
+#import "PasteController.h"
 
 #include <deque>
 #include "encoding.h"
@@ -387,12 +388,7 @@ BOOL isSpecialSymbol(unichar ch)
 - (IBAction) paste: (id)sender
 {
     if (![self connected]) return;
-    NSPasteboard *pb = [NSPasteboard generalPasteboard];
-    NSArray *types = [pb types];
-    if ([types containsObject: NSStringPboardType]) {
-        NSString *str = [pb stringForType: NSStringPboardType];
-        [self insertText: str withDelay: 100];
-    }
+    [[PasteController sharedInstance] handlePasteWithPasteboard:[NSPasteboard generalPasteboard]];
 }
 
 - (void) pasteWrap: (id)sender

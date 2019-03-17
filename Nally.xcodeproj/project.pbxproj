@@ -14,6 +14,8 @@
 		079E9BCA0F08C4820089C9E2 /* YLFloatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 079E9BC90F08C4820089C9E2 /* YLFloatingView.m */; };
 		07B370690D6840600035E87D /* YLImagePreviewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B370680D6840600035E87D /* YLImagePreviewer.m */; };
 		07B73D900E5816FF00CC97D3 /* YLPluginLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B73D8F0E5816FF00CC97D3 /* YLPluginLoader.m */; };
+		622E339C223DD44800C6E21D /* NSString+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E339B223DD44800C6E21D /* NSString+ext.m */; };
+		67462B6F574CE82C48431371 /* PasteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67462B04F05641CBA62D1F80 /* PasteController.m */; };
 		6DE3C78FD8E3147F353D63F0 /* Pods_Nally.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56B94F13F4BCFA15C268E900 /* Pods_Nally.framework */; };
 		850711AB0CA7A347005F4734 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850711AA0CA7A347005F4734 /* ApplicationServices.framework */; };
 		85137B330D02192800833909 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 85137B320D02192800833909 /* Credits.rtf */; };
@@ -103,6 +105,10 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		56B94F13F4BCFA15C268E900 /* Pods_Nally.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nally.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		622E339A223DD44800C6E21D /* NSString+ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+ext.h"; sourceTree = "<group>"; };
+		622E339B223DD44800C6E21D /* NSString+ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+ext.m"; sourceTree = "<group>"; };
+		674627873066DA81089DC2A4 /* PasteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasteController.h; sourceTree = "<group>"; };
+		67462B04F05641CBA62D1F80 /* PasteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasteController.m; sourceTree = "<group>"; };
 		6BBF85D09A0AF6BAF42E2DAF /* Pods-TextSuiteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextSuiteTests.release.xcconfig"; path = "Target Support Files/Pods-TextSuiteTests/Pods-TextSuiteTests.release.xcconfig"; sourceTree = "<group>"; };
 		7119D1820EE7DC46003F98C8 /* Nally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nally.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71585BD70EFE06C200E04E4E /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_CN; path = zh_CN.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -229,6 +235,10 @@
 				07B73D9D0E581E2C00CC97D3 /* YLBundle.h */,
 				071AE86F0F12012100FDD307 /* YLExifController.h */,
 				071AE8700F12012100FDD307 /* YLExifController.m */,
+				67462B04F05641CBA62D1F80 /* PasteController.m */,
+				674627873066DA81089DC2A4 /* PasteController.h */,
+				622E339A223DD44800C6E21D /* NSString+ext.h */,
+				622E339B223DD44800C6E21D /* NSString+ext.m */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -677,12 +687,14 @@
 				07B73D900E5816FF00CC97D3 /* YLPluginLoader.m in Sources */,
 				079E9BCA0F08C4820089C9E2 /* YLFloatingView.m in Sources */,
 				071AE8710F12012100FDD307 /* YLExifController.m in Sources */,
+				622E339C223DD44800C6E21D /* NSString+ext.m in Sources */,
 				85AF012412912A3300728C12 /* DBPrefsWindowController.m in Sources */,
 				85AF012712912A8C00728C12 /* main.m in Sources */,
 				8540FBC512AB3D00000FE1D6 /* YLTextSuite.m in Sources */,
 				8540FBF412AB5938000FE1D6 /* YLRun.m in Sources */,
 				8540FBF712AB5AF4000FE1D6 /* YLLine.m in Sources */,
 				8540FCCC12AB81B9000FE1D6 /* YLApplicationKitAddition.m in Sources */,
+				67462B6F574CE82C48431371 /* PasteController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

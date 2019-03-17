@@ -6,9 +6,9 @@
 //  Copyright 2007 yllan.org. All rights reserved.
 //
 
+#import <AppKit/AppKit.h>
 #import "YLController.h"
 #import "YLTelnet.h"
-#import "YLTerminal.h"
 #import "YLLGlobalConfig.h"
 #import "DBPrefsWindowController.h"
 #import "YLEmoticon.h"
@@ -28,13 +28,13 @@
 {
     // Register URL
     [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(getUrl:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
-    
-    NSArray *observeKeys = [NSArray arrayWithObjects: @"shouldSmoothFonts", @"showHiddenText", @"messageCount", @"cellWidth", @"cellHeight", 
-                            @"chineseFontName", @"chineseFontSize", @"chineseFontPaddingLeft", @"chineseFontPaddingBottom",
-                            @"englishFontName", @"englishFontSize", @"englishFontPaddingLeft", @"englishFontPaddingBottom", 
-                            @"colorBlack", @"colorBlackHilite", @"colorRed", @"colorRedHilite", @"colorGreen", @"colorGreenHilite",
-                            @"colorYellow", @"colorYellowHilite", @"colorBlue", @"colorBlueHilite", @"colorMagenta", @"colorMagentaHilite", 
-                            @"colorCyan", @"colorCyanHilite", @"colorWhite", @"colorWhiteHilite", @"colorBG", @"colorBGHilite", nil];
+
+    NSArray *observeKeys = @[@"shouldSmoothFonts", @"showHiddenText", @"messageCount", @"cellWidth", @"cellHeight",
+            @"chineseFontName", @"chineseFontSize", @"chineseFontPaddingLeft", @"chineseFontPaddingBottom",
+            @"englishFontName", @"englishFontSize", @"englishFontPaddingLeft", @"englishFontPaddingBottom",
+            @"colorBlack", @"colorBlackHilite", @"colorRed", @"colorRedHilite", @"colorGreen", @"colorGreenHilite",
+            @"colorYellow", @"colorYellowHilite", @"colorBlue", @"colorBlueHilite", @"colorMagenta", @"colorMagentaHilite",
+            @"colorCyan", @"colorCyanHilite", @"colorWhite", @"colorWhiteHilite", @"colorBG", @"colorBGHilite"];
     for (NSString *key in observeKeys)
         [[YLLGlobalConfig sharedInstance] addObserver: self forKeyPath: key options: (NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context: NULL];
 
@@ -58,7 +58,10 @@
         [self loadLastConnections];
     
     [NSTimer scheduledTimerWithTimeInterval: 120 target: self selector: @selector(antiIdle:) userInfo: nil repeats: YES];
-    [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(updateBlinkTicker:) userInfo: nil repeats: YES];    
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateBlinkTicker:) userInfo:nil repeats:YES];
+
+    [_smartPasteButton setState:[[YLLGlobalConfig sharedInstance] smartPaste] ? NSOnState : NSOffState];
+
 }
 
 - (void) dealloc
@@ -149,6 +152,7 @@
     [terminal release];
     [self refreshTabLabelNumber: _telnetView];
     [self updateEncodingMenu];
+
     [_detectDoubleByteButton setState: [[[_telnetView frontMostConnection] site] detectDoubleByte] ? NSOnState : NSOffState];
     [_detectDoubleByteMenuItem setState: [[[_telnetView frontMostConnection] site] detectDoubleByte] ? NSOnState : NSOffState];
     [pool release];
@@ -297,6 +301,23 @@
     [[[_telnetView frontMostConnection] site] setDetectDoubleByte: ddb];
     [_detectDoubleByteButton setState: ddb ? NSOnState : NSOffState];
     [_detectDoubleByteMenuItem setState: ddb ? NSOnState : NSOffState];
+}
+
+- (IBAction) setSmartPasteAction:(id)sender {
+    YLLGlobalConfig *config = [YLLGlobalConfig sharedInstance];
+    bool status = [config smartPaste];
+    [config setSmartPaste:!status];
+    [_smartPasteButton setState:[config smartPaste] ? NSOnState : NSOffState];
+
+    //When on, show manual
+    if ([config smartPaste]) {
+        NSAlert *alert = [[NSAlert new] autorelease];
+        [alert setMessageText:NSLocalizedString(@"About SmartPaste", @"About SmartPaste")];
+        [alert setInformativeText:NSLocalizedString(@"SmartPasteInformation", @"SmartPasteInformation")];
+        //[alert setShowsSuppressionButton:YES];
+        [alert addButtonWithTitle:@"Got it"];
+        [alert beginSheetModalForWindow:[NSApp mainWindow] completionHandler:nil];
+    }
 }
 
 - (IBAction) setEncoding: (id)sender
