@@ -30,7 +30,8 @@ static YLLGlobalConfig *sSharedInstance;
 }
 @end
 
-@implementation YLLGlobalConfig
+@implementation YLLGlobalConfig 
+
 + (YLLGlobalConfig*) sharedInstance {
 	return sSharedInstance ?: [[YLLGlobalConfig new] autorelease];
 }
@@ -102,12 +103,14 @@ static YLLGlobalConfig *sSharedInstance;
         [self setColorWhite: [defaults myColorForKey: @"ColorWhite"]];
         [self setColorWhiteHilite: [defaults myColorForKey: @"ColorWhiteHilite"]]; // Foreground Color
         [self setColorBG: [defaults myColorForKey: @"ColorBG"]];
-        [self setColorBGHilite: [defaults myColorForKey: @"ColorBGHilite"]]; 
+        [self setColorBGHilite:[defaults myColorForKey:@"ColorBGHilite"]];
+        [self setSmartPaste:[defaults boolForKey:@"SmartPaste"]];
         _colorTable[0][8] = [[NSColor colorWithCalibratedRed: 0.75 green: 0.75 blue: 0.75 alpha: 1.0] retain];
         _colorTable[1][8] = [[NSColor colorWithCalibratedRed: 1.00 green: 1.00 blue: 1.00 alpha: 1.0] retain];
 
         _bgColorIndex = 9;
         _fgColorIndex = 7;
+
 
         [defaults synchronize];
         [self refreshFont];
@@ -244,6 +247,15 @@ static YLLGlobalConfig *sSharedInstance;
 - (void)setRepeatBounce:(BOOL)value {
     _repeatBounce = value;
     [[NSUserDefaults standardUserDefaults] setBool: value forKey: @"RepeatBounce"];
+}
+
+- (BOOL)smartPaste {
+    return _smartPaste;
+}
+
+- (void)setSmartPaste:(BOOL)value {
+    _smartPaste = value;
+    [[NSUserDefaults standardUserDefaults] setBool:value forKey:@"SmartPaste"];
 }
 
 - (BOOL)detectDoubleByte {

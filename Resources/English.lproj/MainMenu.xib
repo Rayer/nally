@@ -56,7 +56,7 @@
                         <size key="minSize" width="28" height="25"/>
                         <size key="maxSize" width="28" height="25"/>
                         <button key="view" verticalHuggingPriority="750" id="416">
-                            <rect key="frame" x="2" y="14" width="28" height="25"/>
+                            <rect key="frame" x="3" y="14" width="28" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="bookmark" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="417">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -140,7 +140,7 @@
                         <size key="minSize" width="30" height="25"/>
                         <size key="maxSize" width="30" height="25"/>
                         <button key="view" verticalHuggingPriority="750" id="434">
-                            <rect key="frame" x="37" y="14" width="30" height="25"/>
+                            <rect key="frame" x="36" y="14" width="30" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSQuickLookTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="435">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
@@ -160,7 +160,7 @@
                         <size key="minSize" width="30" height="25"/>
                         <size key="maxSize" width="30" height="25"/>
                         <button key="view" verticalHuggingPriority="750" id="440">
-                            <rect key="frame" x="13" y="14" width="30" height="25"/>
+                            <rect key="frame" x="12" y="14" width="30" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="sleep" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="441">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
@@ -176,7 +176,7 @@
                         <size key="minSize" width="30" height="25"/>
                         <size key="maxSize" width="30" height="25"/>
                         <button key="view" verticalHuggingPriority="750" id="829">
-                            <rect key="frame" x="14" y="14" width="30" height="25"/>
+                            <rect key="frame" x="13" y="14" width="30" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="roundTextured" title="'Д`" bezelStyle="texturedRounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="830">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -193,7 +193,7 @@
                         <size key="minSize" width="30" height="25"/>
                         <size key="maxSize" width="31" height="25"/>
                         <button key="view" verticalHuggingPriority="750" id="XJX-cx-kg4">
-                            <rect key="frame" x="4" y="14" width="30" height="25"/>
+                            <rect key="frame" x="3" y="14" width="30" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="roundTextured" title="L" bezelStyle="texturedRounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wPL-3e-qHn">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -203,6 +203,22 @@
                         <connections>
                             <action selector="autoLogin:" target="207" id="iPS-bX-1x5"/>
                         </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="6E6AD608-143B-4B61-A3A2-79E4F4765B97" label="Smart Paste" paletteLabel="Smart Paste" id="KgP-xf-P8c">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="30" height="19"/>
+                        <size key="maxSize" width="31" height="25"/>
+                        <button key="view" verticalHuggingPriority="750" id="Dsn-UK-Mom">
+                            <rect key="frame" x="21" y="14" width="30" height="23"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="roundTextured" title="S" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="x9t-Tv-oty">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="setSmartPasteAction:" target="207" id="h7O-Kc-2gt"/>
+                            </connections>
+                        </button>
                     </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
@@ -214,7 +230,7 @@
                     <toolbarItem reference="442"/>
                     <toolbarItem reference="436"/>
                     <toolbarItem reference="415"/>
-                    <toolbarItem reference="szN-5x-6U7"/>
+                    <toolbarItem reference="KgP-xf-P8c"/>
                 </defaultToolbarItems>
                 <connections>
                     <outlet property="delegate" destination="207" id="832"/>
@@ -498,6 +514,7 @@
                 <outlet property="_sitesController" destination="366" id="404"/>
                 <outlet property="_sitesMenu" destination="266" id="406"/>
                 <outlet property="_sitesWindow" destination="332" id="376"/>
+                <outlet property="_smartPasteButton" destination="Dsn-UK-Mom" id="IFP-3O-r5p"/>
                 <outlet property="_tab" destination="303" id="306"/>
                 <outlet property="_telnetView" destination="206" id="208"/>
             </connections>
@@ -934,7 +951,7 @@ Gw
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" continuousSpellChecking="YES" spellingCorrection="YES" id="780">
-                                                        <rect key="frame" x="0.0" y="0.0" width="244" height="340"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="256" height="323"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

@@ -28,6 +28,7 @@
     BOOL _detectDoubleByte;
     BOOL _repeatBounce;
     BOOL _shouldPreferImagePreviewer;
+    BOOL _smartPaste;
     YLEncoding _defaultEncoding;
     YLANSIColorKey _defaultANSIColorKey;
     
@@ -51,6 +52,7 @@
 	CFDictionaryRef _eCTAttribute[2][NUM_COLOR];
 }
 
+
 + (YLLGlobalConfig *) sharedInstance;
 
 - (void) refreshFont;
@@ -73,6 +75,10 @@
 - (void)setShouldSmoothFonts:(BOOL)value;
 - (BOOL)detectDoubleByte;
 - (void)setDetectDoubleByte:(BOOL)value;
+
+- (BOOL)smartPaste;
+
+- (void)setSmartPaste:(BOOL)value;
 - (BOOL)repeatBounce;
 - (void)setRepeatBounce:(BOOL)value;
 - (BOOL)shouldPreferImagePreviewer;

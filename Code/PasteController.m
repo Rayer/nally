@@ -4,6 +4,7 @@
 
 #import <ImgurAnonymousAPIClient.h>
 #import "PasteController.h"
+#import "YLLGlobalConfig.h"
 #import "YLController.h"
 #import "NSString+ext.h"
 
@@ -28,23 +29,39 @@
 
 
 - (void)handlePasteWithPasteboard:(NSPasteboard*) pasteBoard {
-    NSString* clipped = [pasteBoard stringForType:NSPasteboardTypeString];
-    //Handle URL & Transform to TinyURL
-    if([clipped UJ_isUrlLike] && [clipped length] > 40) {
-        YLController *controller = (id) [NSApp delegate];
-        [[controller telnetView] insertText:[self tinyurlWithSourceURLString:clipped]];
-        return;
-    }
-    
-    //Handle imgur with filepath
-    NSString *filePath = [pasteBoard stringForType:@"public.file-url"]; //In 10.13, it is [pasteBoard stringForType:NSPasteboardTypeFileURL]
-    if (filePath) {
-        //Check if it is image
-        NSURL *url = [NSURL URLWithString:filePath];
-        NSImage *img = [[[NSImage alloc] initWithContentsOfURL:url] autorelease];
-        if (img) {
-            [self imgurWithData:[img TIFFRepresentation] withCompletionHandler:^(NSURL *imgurURL, NSError *error) {
-                if(error) {
+    if ([[YLLGlobalConfig sharedInstance] smartPaste] == YES) {
+        NSString *clipped = [pasteBoard stringForType:NSPasteboardTypeString];
+        //Handle URL & Transform to TinyURL
+        if ([clipped UJ_isUrlLike] && [clipped length] > 40) {
+            YLController *controller = (id) [NSApp delegate];
+            [[controller telnetView] insertText:[self tinyurlWithSourceURLString:clipped]];
+            return;
+        }
+
+        //Handle imgur with filepath
+        NSString *filePath = [pasteBoard stringForType:@"public.file-url"]; //In 10.13, it is [pasteBoard stringForType:NSPasteboardTypeFileURL]
+        if (filePath) {
+            //Check if it is image
+            NSURL *url = [NSURL URLWithString:filePath];
+            NSImage *img = [[[NSImage alloc] initWithContentsOfURL:url] autorelease];
+            if (img) {
+                [self imgurWithData:[img TIFFRepresentation] withCompletionHandler:^(NSURL *imgurURL, NSError *error) {
+                    if (error) {
+                        NSLog(@"Error! %@", error);
+                    }
+                    YLController *controller = (id) [NSApp delegate];
+                    [[controller telnetView] insertText:[imgurURL absoluteString]];
+                }];
+                return;
+            }
+        }
+
+        //Handle imgur pasteboard
+        if ([pasteBoard dataForType:NSPasteboardTypePNG] || [pasteBoard dataForType:NSPasteboardTypeTIFF]) {
+            NSData *dataImgPng = [pasteBoard dataForType:NSPasteboardTypePNG];
+            NSData *dataImgTiff = [pasteBoard dataForType:NSPasteboardTypeTIFF];
+            [self imgurWithData:dataImgPng ? dataImgPng : dataImgTiff withCompletionHandler:^(NSURL *imgurURL, NSError *error) {
+                if (error) {
                     NSLog(@"Error! %@", error);
                 }
                 YLController *controller = (id) [NSApp delegate];
@@ -52,23 +69,12 @@
             }];
             return;
         }
+
+        [self defaultPasteWithPasteboard:pasteBoard];
+    } else {
+        [self defaultPasteWithPasteboard:pasteBoard];
     }
     
-    //Handle imgur pasteboard
-    if ([pasteBoard dataForType:NSPasteboardTypePNG] || [pasteBoard dataForType:NSPasteboardTypeTIFF]) {
-        NSData* dataImgPng = [pasteBoard dataForType:NSPasteboardTypePNG];
-        NSData* dataImgTiff = [pasteBoard dataForType:NSPasteboardTypeTIFF];
-        [self imgurWithData:dataImgPng ? dataImgPng : dataImgTiff withCompletionHandler:^(NSURL *imgurURL, NSError *error) {
-            if(error) {
-                NSLog(@"Error! %@", error);
-            }
-            YLController *controller = (id) [NSApp delegate];
-            [[controller telnetView] insertText:[imgurURL absoluteString]];
-        }];
-        return;
-    }
-    
-    [self defaultPasteWithPasteboard:pasteBoard];
     
 }
 
