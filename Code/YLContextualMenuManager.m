@@ -9,6 +9,8 @@
 #import "YLContextualMenuManager.h"
 #import "YLController.h"
 #import "ImgurAnonymousAPIClient.h"
+#import "PasteController.h"
+#import "NSString+ext.h"
 
 static YLContextualMenuManager *gSharedInstance;
 
@@ -37,33 +39,6 @@ static YLContextualMenuManager *gSharedInstance;
     return [[s componentsSeparatedByString: @"\\\r"] componentsJoinedByString: @""];
 }
 @end
-
-@interface NSString (UJStringUrlCategory)
-- (BOOL) UJ_isUrlLike;
-- (NSString *) UJ_protocolPrefixAppendedUrlString;
-@end
-
-@implementation NSString (UJStringUrlCategory)
-- (BOOL) UJ_isUrlLike
-{
-    NSURL *url = [NSURL URLWithString:self];
-    return url && url.scheme && url.host;
-}
-
-- (NSString *) UJ_protocolPrefixAppendedUrlString
-{
-    NSArray *protocols = @[@"http://", @"https://", @"ftp://", @"telnet://",
-            @"bbs://", @"ssh://", @"mailto:"];
-    for (NSString *p in protocols)
-    {
-        if ([self hasPrefix:p])
-            return self;
-    }
-    return [@"http://" stringByAppendingString:self];
-}
-
-@end
-
 
 @implementation YLContextualMenuManager
 
@@ -195,9 +170,7 @@ static YLContextualMenuManager *gSharedInstance;
         [item setRepresentedObject: selectedString];
         [items addObject: item];
     } else {
-        // selectedString length == 0
-        //NSPasteboardTypeUrl is supported after 10.13, so use String to compitiable 10.12
-
+        
         if ([self anotherPasteStillOnGoing]) {
             item = [[[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Unable to paste now...", @"Unable to paste now...") action:@selector(nilSymbol) keyEquivalent:@""] autorelease];
             [item setEnabled:NO];
@@ -211,7 +184,7 @@ static YLContextualMenuManager *gSharedInstance;
 
         if([clippedString UJ_isUrlLike]) {
             item = [[[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Paste TinyURL", @"Menu") action:@selector(tinyurl:) keyEquivalent:@""] autorelease];
-            [item setTarget: self];
+            [item setTarget: [PasteController sharedInstance]];
             [item setRepresentedObject:clippedString];
             [items addObject:item];
             return items;
@@ -226,7 +199,7 @@ static YLContextualMenuManager *gSharedInstance;
             if (img) {
                 NSData *tiffData = [img TIFFRepresentation];
                 item = [[[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Paste image to Imgur", @"Paste image to Imgur") action:@selector(imgur:) keyEquivalent:@""] autorelease];
-                [item setTarget:self];
+                [item setTarget:[PasteController sharedInstance]];
                 [item setRepresentedObject:tiffData];
                 [items addObject:item];
                 return items;
@@ -239,7 +212,7 @@ static YLContextualMenuManager *gSharedInstance;
             NSData* dataImgPng = [pasteBoard dataForType:NSPasteboardTypePNG];
             NSData* dataImgTiff = [pasteBoard dataForType:NSPasteboardTypeTIFF];
             item = [[[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Paste image to Imgur", @"Paste image to Imgur") action:@selector(imgur:) keyEquivalent:@""] autorelease];
-            [item setTarget:self];
+            [item setTarget:[PasteController sharedInstance]];
             [item setRepresentedObject:dataImgPng != nil ? dataImgPng : dataImgTiff];
             [items addObject:item];
             return items;
@@ -287,62 +260,5 @@ static YLContextualMenuManager *gSharedInstance;
     
 }
 
-- (IBAction) tinyurl: (id)sender
-{
-    [self setAnotherPasteStillOnGoing:YES];
-    NSAlert *alert = [[NSAlert new] autorelease];
-    [alert setMessageText:NSLocalizedString(@"Converting URL to TinyURL...", @"Converting URL to TinyURL...")];
-    [alert setInformativeText:NSLocalizedString(@"It may take several seconds, please wait", @"It may take several seconds, please wait")];
-    [alert addButtonWithTitle:@""];
-    [alert setAlertStyle:NSAlertStyleInformational];
-    [alert beginSheetModalForWindow:[NSApp mainWindow] completionHandler:nil];
-    NSString *u = [sender representedObject];
-    NSString* APIRequestString = [@"http://tinyurl.com/api-create.php?url=" stringByAppendingString:u];
-    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-    [request setURL:[NSURL URLWithString:APIRequestString]];
-    [request setHTTPMethod:@"GET"];
-    NSError *error = nil;
-    NSHTTPURLResponse *responseCode = nil;
-    
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:&error];
-
-    if([responseCode statusCode] != 200){
-        NSLog(@"Error getting %@, HTTP status code %li", APIRequestString, (long)[responseCode statusCode]);
-        return;
-    }
-
-    //[[NSApp mainWindow] endSheet:alert.window];
-
-    NSString *tinyurlResult = [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
-
-    YLController *controller = (id) [NSApp delegate];
-    [[controller telnetView] insertText:tinyurlResult];
-    [[NSApp mainWindow] endSheet:alert.window];
-    [self setAnotherPasteStillOnGoing:NO];
-}
-
--(IBAction)imgur:(id)sender {
-    [self setAnotherPasteStillOnGoing:YES];
-    NSData* data = [sender representedObject];
-    NSAlert *alert = [[NSAlert new] autorelease];
-    [alert setMessageText:NSLocalizedString(@"Pasting to imgur...", @"Pasting to imgur...")];
-    [alert setInformativeText:NSLocalizedString(@"It may take several seconds, please wait", @"It may take several seconds, please wait")];
-    [alert addButtonWithTitle:@""];
-    [alert setAlertStyle:NSAlertStyleInformational];
-    [alert beginSheetModalForWindow:[NSApp mainWindow] completionHandler:nil];
-
-    [[ImgurAnonymousAPIClient sharedClient] uploadImageData:data withFilename:@"nally-uploaded" completionHandler:^(NSURL *imgurURL, NSError *error) {
-        if(error) {
-            NSLog(@"Error! %@", error);
-        }
-        YLController *controller = (id) [NSApp delegate];
-        [[controller telnetView] insertText:[imgurURL absoluteString]];
-        [[NSApp mainWindow] endSheet:alert.window];
-        //[NSApp stopModal];
-        //It will clear contents so it won't be paste again
-        [[NSPasteboard generalPasteboard] clearContents];
-        [self setAnotherPasteStillOnGoing:NO];
-    }];
-}
 
 @end

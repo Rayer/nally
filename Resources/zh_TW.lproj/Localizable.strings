@@ -42,3 +42,6 @@
 "Unable to paste now..." = "目前無法貼上，其他動作進行中";
 "Converting URL to TinyURL..." = "正在轉換網址成TinyURL...";
 "Paste image to Imgur" = "將這張圖案貼上Imgur";
+
+"About SmartPaste" = "Smart Paste(拼貼小幫手)";
+"SmartPasteInformation" = "拼貼小幫手已經啟動。\n\n拼貼小幫手將會幫你把你系統剪貼簿的內容(通常來講當你按下⌘+c來拷貝某些文字圖案，以及當你用Mac Style的screenshot(⌘+shift+ctrl+3(or4)將截圖貼入剪貼簿)時，拼貼小幫手會在你貼上Nally的時候(⌘+v)幫你自動轉換資料 : \n\n1. 如果你剪下的是一串網址，而且這網址大於40個字元，拼貼小幫手將幫你TinyURL縮網址。\n2. 如果剪貼了圖片(通常就是Mac風格的screenshot)，會自動幫你轉換成Imgur.\n3. 如果剪貼了一個圖形檔案，比方說對著photo或者圖片檔案下⌘+c，也會自動幫你轉換成Imgur.\n4. 其他情況下，你剪下什麼就會按原樣貼上什麼。";

@@ -21,6 +21,7 @@
     IBOutlet NSWindow *_mainWindow;
 	IBOutlet id _telnetView;
 	IBOutlet id _addressBar;
+    IBOutlet id _smartPasteButton;
     IBOutlet id _detectDoubleByteButton;
     
     IBOutlet PSMTabBarControl *_tab;
@@ -62,6 +63,8 @@
 - (IBAction) addSites: (id)sender;
 - (IBAction) autoLogin: (id)sender;
 - (IBAction) showHiddenText: (id)sender;
+
+- (IBAction) setSmartPasteAction:(id)sender;
 - (IBAction) openPreferencesWindow: (id)sender;
 - (void) newConnectionWithSite: (YLSite *)site;
 
