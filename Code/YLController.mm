@@ -215,8 +215,10 @@
 - (void) loadSites
 {
     NSArray *dictionaries = [[NSUserDefaults standardUserDefaults] arrayForKey: @"Sites"];
-    for (NSDictionary *siteDictionay in dictionaries){
-        NSString *address =  [siteDictionay objectForKey:@"address"];
+    
+    for (NSDictionary *siteDictionaryImm in dictionaries){
+        NSMutableDictionary* siteDictionary = [siteDictionaryImm mutableCopy];
+        NSString *address =  [siteDictionary objectForKey:@"address"];
         if ( address )
         {
             NSString *account = [[[SSKeychain accountsForService:address]lastObject] objectForKey:@"acct"];
@@ -225,11 +227,11 @@
             {
                 /* set account and password back to siteDict */
                 NSLog(@"%@,%@",account,password);
-                [siteDictionay setValue:account forKey:@"account"];
-                [siteDictionay setValue:password forKey:@"password"];
+                [siteDictionary setValue:account forKey:@"account"];
+                [siteDictionary setValue:password forKey:@"password"];
             }
         }
-        [self insertObject: [YLSite siteWithDictionary: siteDictionay] inSitesAtIndex: [self countOfSites]];
+        [self insertObject: [YLSite siteWithDictionary: siteDictionary] inSitesAtIndex: [self countOfSites]];
     }
 }
 
