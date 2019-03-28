@@ -2,11 +2,29 @@
 
 Open-Source telnet/ssh BBS client.
 
+Build status :
+
+- ![](https://travis-ci.com/Rayer/nally.svg?branch=develop) Develop Branch
+
+- ![](https://travis-ci.com/Rayer/nally.svg?branch=master) Master Branch
+
 ## Issue Tracking
 
 [YouTrack追蹤頁面](https://irisnode.myjetbrains.com/youtrack/)顯示了所有的開發中項目，如果有issue回報或者新功能request，請在GitHub的issue發出，接受後會移到YouTrack。
 
 ## History
+
+### 2.0.1
+
+Release Date : 2019.03.28
+
+這個release以bug fix為主，詳細請參考YouTrack追蹤頁面
+
+- [Nally-8](https://irisnode.myjetbrains.com/youtrack/issue/NALLY-8) 修正了Travis CI的問題，現在可以正常顯示build status了
+- [Nally-13](https://irisnode.myjetbrains.com/youtrack/issue/NALLY-13) 修正Preference選單中，頁籤切換會鬼影幢幢的問題。
+- [Nally-15](https://irisnode.myjetbrains.com/youtrack/issue/NALLY-15) 用一個workaround修正了當視窗焦點切換來切換去的時候，Smart Paste產生的Alert Panel無法正確消失而卡在螢幕上的問題。這個沒有太好的解法，目前是讓這個alert panel在10秒內要是沒消失的話，會有一個Dismiss按鈕讓你把它按掉。
+- [Nally-18](https://irisnode.myjetbrains.com/youtrack/issue/NALLY-18) 修正一個當站台列表內有儲存帳號密碼時會造成整個死當的問題。
+
 
 ### 2.0.0
 
