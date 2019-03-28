@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>2.0.0</string>
+	<string>2.0.1</string>
 	<key>CFBundleIconFile</key>
 	<string>DragonBall.icns</string>
 	<key>CFBundleIdentifier</key>
@@ -21,7 +21,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.0</string>
+	<string>2.0.1</string>
 	<key>CFBundleSignature</key>
 	<string>naly</string>
 	<key>CFBundleURLTypes</key>
@@ -44,6 +44,8 @@
 			</array>
 		</dict>
 	</array>
+	<key>ImgurAnonymousAPIClientID</key>
+	<string>e4b9b7346da763f</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.social-networking</string>
 	<key>LSMinimumSystemVersion</key>
@@ -66,8 +68,6 @@
 	</dict>
 	<key>NSHumanReadableCopyright</key>
 	<string>© 2010, yllan.org</string>
-	<key>ImgurAnonymousAPIClientID</key>
-	<string>e4b9b7346da763f</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
