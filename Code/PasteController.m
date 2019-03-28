@@ -147,7 +147,6 @@
     [alert setInformativeText:detail];
     NSButton* dismissBtn = [alert addButtonWithTitle:NSLocalizedString(@"Dismiss", @"Dismiss alert when it freeze...")];
     [dismissBtn setHidden:YES];
-    //NSDate* date = [NSDate dateWithTimeIntervalSinceNow:30];
     NSTimer* timer = [NSTimer timerWithTimeInterval:10 repeats:NO block:^(NSTimer * _Nonnull timer) {
         [dismissBtn setHidden:NO];
     }];
