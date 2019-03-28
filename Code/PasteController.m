@@ -89,12 +89,7 @@
 
 - (NSString*)tinyurlWithSourceURLString:(NSString*) urlString {
     [self setAnotherPasteStillOnGoing:YES];
-    NSAlert *alert = [[NSAlert new] autorelease];
-    [alert setMessageText:NSLocalizedString(@"Converting URL to TinyURL...", @"Converting URL to TinyURL...")];
-    [alert setInformativeText:NSLocalizedString(@"It may take several seconds, please wait", @"It may take several seconds, please wait")];
-    [alert addButtonWithTitle:@""];
-    [alert setAlertStyle:NSAlertStyleInformational];
-    [alert beginSheetModalForWindow:[NSApp mainWindow] completionHandler:nil];
+    NSAlert *alert = [self alertWithTitle:NSLocalizedString(@"Converting URL to TinyURL...", @"Converting URL to TinyURL...") andDetail:NSLocalizedString(@"It may take several seconds, please wait", @"It may take several seconds, please wait")];
     NSString* APIRequestString = [@"http://tinyurl.com/api-create.php?url=" stringByAppendingString:urlString];
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
     [request setURL:[NSURL URLWithString:APIRequestString]];
@@ -118,17 +113,11 @@
 
 - (void)imgurWithData:(NSData*) imgData withCompletionHandler:(void (^)(NSURL *, NSError *))completionHandler; {
     [self setAnotherPasteStillOnGoing:YES];
-    NSAlert *alert = [[NSAlert new] autorelease];
-    [alert setMessageText:NSLocalizedString(@"Pasting to imgur...", @"Pasting to imgur...")];
-    [alert setInformativeText:NSLocalizedString(@"It may take several seconds, please wait", @"It may take several seconds, please wait")];
-    [alert addButtonWithTitle:@""];
-    [alert setAlertStyle:NSAlertStyleInformational];
-    [alert beginSheetModalForWindow:[NSApp mainWindow] completionHandler:nil];
+    NSAlert *alert = [self alertWithTitle:NSLocalizedString(@"Pasting to imgur...", @"Pasting to imgur...") andDetail:NSLocalizedString(@"It may take several seconds, please wait", @"It may take several seconds, please wait")];
     
     [[ImgurAnonymousAPIClient sharedClient] uploadImageData:imgData withFilename:@"nally-uploaded" completionHandler:^(NSURL *imgurURL, NSError *error) {
         completionHandler(imgurURL, error);
         [[NSApp mainWindow] endSheet:alert.window];
-        //[NSApp stopModal];
         //It will clear contents so it won't be paste again
         [[NSPasteboard generalPasteboard] clearContents];
         [self setAnotherPasteStillOnGoing:NO];
@@ -150,5 +139,22 @@
         YLController *controller = (id) [NSApp delegate];
         [[controller telnetView] insertText:[imgurURL absoluteString]];
     }];
+}
+
+-(NSAlert*) alertWithTitle:(NSString*)title andDetail:(NSString*)detail {
+    NSAlert *alert = [[NSAlert new] autorelease];
+    [alert setMessageText:title];
+    [alert setInformativeText:detail];
+    NSButton* dismissBtn = [alert addButtonWithTitle:NSLocalizedString(@"Dismiss", @"Dismiss alert when it freeze...")];
+    [dismissBtn setHidden:YES];
+    NSTimer* timer = [NSTimer timerWithTimeInterval:10 repeats:NO block:^(NSTimer * _Nonnull timer) {
+        [dismissBtn setHidden:NO];
+    }];
+    
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    
+    [alert setAlertStyle:NSAlertStyleInformational];
+    [alert beginSheetModalForWindow:[NSApp mainWindow] completionHandler:nil];
+    return alert;
 }
 @end
