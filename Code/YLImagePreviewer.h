@@ -7,14 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
-//#import <HMBlkAppKit/HMBlkProgressIndicator.h>
 
 @interface YLImagePreviewer : NSObject<NSWindowDelegate> {
     NSURL           *_currentFileUrlDownloading;
     NSString        *_currentFileDownloading;
     NSMutableData   *_receivedData;
     NSURLConnection *_connection;
-    //HMBlkProgressIndicator *_indicator;
+    NSProgressIndicator *_indicator;
     long long        _totalLength;
     NSPanel         *_window;
 }
