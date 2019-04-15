@@ -132,11 +132,11 @@
     [_window setViewsNeedDisplay: NO];
     [_window makeKeyAndOrderFront: nil];
     
-    _indicator = [[HMBlkProgressIndicator alloc] initWithFrame: NSMakeRect(10, 10, 380, 10)];
-    [[_window contentView] addSubview: _indicator];
+    //_indicator = [[HMBlkProgressIndicator alloc] initWithFrame: NSMakeRect(10, 10, 380, 10)];
+    //[[_window contentView] addSubview: _indicator];
     // [_indicator release];
 
-    [_indicator startAnimation: self];
+    //[_indicator startAnimation: self];
 }
 
 - (void) showImage: (NSImage *) image 
@@ -182,8 +182,8 @@
     NSRect viewRect = NSMakeRect(0, 0, size.width, size.height);
     view = [[YLImageView alloc] initWithFrame: viewRect previewer: self];
     
-    [_indicator removeFromSuperview];
-    [_indicator release];
+    //[_indicator removeFromSuperview];
+    //[_indicator release];
     
     [[_window contentView] addSubview: view];
     [_window makeFirstResponder: view];
@@ -238,9 +238,9 @@ NSStringEncoding encodingFromYLEncoding(YLEncoding ylenc)
     _totalLength = [response expectedContentLength];
 
     [_window setTitle: [NSString stringWithFormat: @"Loading %@...", _currentFileDownloading]];
-    [_indicator setIndeterminate: NO];
-    [_indicator setMaxValue: (double) _totalLength];
-    [_indicator setDoubleValue: 0];
+    //[_indicator setIndeterminate: NO];
+    //[_indicator setMaxValue: (double) _totalLength];
+    //[_indicator setDoubleValue: 0];
 
     [_receivedData setLength: 0];
 }
@@ -252,7 +252,7 @@ NSStringEncoding encodingFromYLEncoding(YLEncoding ylenc)
     // append the new data to the receivedData
     // receivedData is declared as a method instance elsewhere
     [_receivedData appendData: data]; 
-    [_indicator incrementBy: (double) [data length]];
+    //[_indicator incrementBy: (double) [data length]];
 }
 
 - (void)connection: (NSURLConnection *) connection
@@ -272,7 +272,7 @@ NSStringEncoding encodingFromYLEncoding(YLEncoding ylenc)
     // receivedData is declared as a method instance elsewhere
     // NSLog(@"Succeeded! Received %d bytes of data", [_receivedData length]);
     
-    [_indicator setDoubleValue: (double) [_receivedData length]];
+    //[_indicator setDoubleValue: (double) [_receivedData length]];
     
     CGImageSourceRef exifSource = CGImageSourceCreateWithData((CFDataRef) _receivedData, NULL);
     NSDictionary *metaData = (NSDictionary*) CGImageSourceCopyPropertiesAtIndex(exifSource, 0, nil);
@@ -295,8 +295,8 @@ NSStringEncoding encodingFromYLEncoding(YLEncoding ylenc)
         // Added by uranusjr
         // On loading error, revert to opening with browser rather than declar failure
         
-        [_indicator removeFromSuperview];
-        [_indicator release];
+        //[_indicator removeFromSuperview];
+        //[_indicator release];
         [self windowWillClose:[NSNotification notificationWithName:@"LoadingFail" object:image]];
         [image autorelease];
         [[NSWorkspace sharedWorkspace] openURL:_currentFileUrlDownloading];
