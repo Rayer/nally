@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment version="101200" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,7 +17,7 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="1" userLabel="General">
             <rect key="frame" x="0.0" y="0.0" width="381" height="259"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -36,7 +36,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="Select..." bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" selectedItem="721" id="845">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="720">
                             <items>
                                 <menuItem title="Select..." state="on" id="721"/>
@@ -52,7 +52,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="Select..." bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" selectedItem="663" id="844">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="662">
                             <items>
                                 <menuItem title="Select..." state="on" id="663"/>
@@ -202,11 +202,13 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
+                                    <binding destination="259" name="fontName" keyPath="chineseFontName" id="428"/>
                                     <binding destination="259" name="displayPatternValue1" keyPath="chineseFontName" id="431">
                                         <dictionary key="options">
                                             <string key="NSDisplayPattern">%{value1}@</string>
                                         </dictionary>
                                     </binding>
+                                    <binding destination="259" name="fontSize" keyPath="chineseFontSize" previousBinding="428" id="429"/>
                                     <binding destination="259" name="displayPatternValue2" keyPath="chineseFontSize" previousBinding="431" id="433">
                                         <dictionary key="options">
                                             <string key="NSDisplayPattern">%{value1}@ - %{value2}@</string>
@@ -217,8 +219,6 @@
                                             <integer key="NSRaisesForNotApplicableKeys" value="1"/>
                                         </dictionary>
                                     </binding>
-                                    <binding destination="259" name="fontName" keyPath="chineseFontName" id="428"/>
-                                    <binding destination="259" name="fontSize" keyPath="chineseFontSize" previousBinding="428" id="429"/>
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" id="51">
@@ -338,12 +338,12 @@
                                             <string key="NSDisplayPattern">%{value1}@ - %{value2}@</string>
                                         </dictionary>
                                     </binding>
+                                    <binding destination="259" name="fontName" keyPath="englishFontName" id="913"/>
                                     <binding destination="259" name="displayPatternValue2" keyPath="englishFontSize" previousBinding="906" id="912">
                                         <dictionary key="options">
                                             <string key="NSDisplayPattern">%{value1}@ - %{value2}@</string>
                                         </dictionary>
                                     </binding>
-                                    <binding destination="259" name="fontName" keyPath="englishFontName" id="913"/>
                                     <binding destination="259" name="fontSize" keyPath="englishFontSize" previousBinding="913" id="915"/>
                                 </connections>
                             </textField>
@@ -701,7 +701,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="Ctrl-U" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" selectedItem="598" id="884">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="596">
                             <items>
                                 <menuItem title="Ctrl-U" state="on" id="598"/>
@@ -718,7 +718,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="Big5" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" selectedItem="581" id="883">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="580">
                             <items>
                                 <menuItem title="Big5" state="on" id="581"/>
@@ -752,5 +752,9 @@
                 </textField>
             </subviews>
         </customView>
+        <progressIndicator wantsLayer="YES" maxValue="100" indeterminate="YES" style="bar" id="M7J-F4-ax7">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+        </progressIndicator>
     </objects>
 </document>

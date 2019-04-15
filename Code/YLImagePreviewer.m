@@ -132,10 +132,8 @@
     [_window setViewsNeedDisplay: NO];
     [_window makeKeyAndOrderFront: nil];
     
-    _indicator = [[HMBlkProgressIndicator alloc] initWithFrame: NSMakeRect(10, 10, 380, 10)];
+    _indicator = [[[NSProgressIndicator alloc] initWithFrame: NSMakeRect(10, 10, 380, 10)] autorelease];
     [[_window contentView] addSubview: _indicator];
-    // [_indicator release];
-
     [_indicator startAnimation: self];
 }
 
@@ -183,7 +181,6 @@
     view = [[YLImageView alloc] initWithFrame: viewRect previewer: self];
     
     [_indicator removeFromSuperview];
-    [_indicator release];
     
     [[_window contentView] addSubview: view];
     [_window makeFirstResponder: view];
@@ -296,7 +293,6 @@ NSStringEncoding encodingFromYLEncoding(YLEncoding ylenc)
         // On loading error, revert to opening with browser rather than declar failure
         
         [_indicator removeFromSuperview];
-        [_indicator release];
         [self windowWillClose:[NSNotification notificationWithName:@"LoadingFail" object:image]];
         [image autorelease];
         [[NSWorkspace sharedWorkspace] openURL:_currentFileUrlDownloading];
