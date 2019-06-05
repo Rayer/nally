@@ -5,13 +5,11 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string></string>
+	<string>Nally</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>2.0.1</string>
-	<key>CFBundleIconFile</key>
-	<string>DragonBall.icns</string>
+	<string>2.0.4</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -21,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.2</string>
+	<string>2.0.4</string>
 	<key>CFBundleSignature</key>
 	<string>naly</string>
 	<key>CFBundleURLTypes</key>
@@ -44,6 +42,8 @@
 			</array>
 		</dict>
 	</array>
+	<key>CFBundleVersion</key>
+	<string>2.0.4</string>
 	<key>ImgurAnonymousAPIClientID</key>
 	<string>e4b9b7346da763f</string>
 	<key>LSApplicationCategoryType</key>
@@ -53,13 +53,13 @@
 	<key>LSMinimumSystemVersionByArchitecture</key>
 	<dict>
 		<key>i386</key>
-		<string>10.5.0</string>
+		<string>10.12.0</string>
 		<key>ppc</key>
-		<string>10.5.0</string>
+		<string>10.12.0</string>
 		<key>ppc64</key>
-		<string>10.6.0</string>
+		<string>10.12.0</string>
 		<key>x86_64</key>
-		<string>10.6.0</string>
+		<string>10.12.0</string>
 	</dict>
 	<key>NSAppTransportSecurity</key>
 	<dict>
@@ -67,7 +67,7 @@
 		<true/>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>© 2010, yllan.org</string>
+	<string>© 2010, yllan.org (and © 2019, Rayer)</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
