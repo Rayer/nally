@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "YLView.h"
-#import <PSMTabBarControl/PSMTabBarControl.h>
+#import "../Dependencies/PSMTabBarControl/PSMTabBarControl.h"
 #import "YLSite.h"
 #import "YLPluginLoader.h"
 #import "YLExifController.h"

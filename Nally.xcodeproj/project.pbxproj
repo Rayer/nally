@@ -53,8 +53,6 @@
 		85AF012B12912AD000728C12 /* nally.public.pem in Resources */ = {isa = PBXBuildFile; fileRef = 85AF012A12912AD000728C12 /* nally.public.pem */; };
 		85B0176212913B30004F06E4 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85B0176012913B30004F06E4 /* Preferences.xib */; };
 		85B0176E12913CA5004F06E4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85B0176C12913CA5004F06E4 /* MainMenu.xib */; };
-		85B0177212913CF3004F06E4 /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85B0177112913CF3004F06E4 /* PSMTabBarControl.framework */; };
-		85B017D81291441F004F06E4 /* PSMTabBarControl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 85B0177112913CF3004F06E4 /* PSMTabBarControl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		85CE53390D0D687800F55B7B /* YLSSH.mm in Sources */ = {isa = PBXBuildFile; fileRef = 85CE53380D0D687800F55B7B /* YLSSH.mm */; };
 		85E7825C0D057E8400BDA3FB /* YLEmoticon.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E7825B0D057E8400BDA3FB /* YLEmoticon.m */; };
 		85ED52290D0920E6003296D4 /* CommonType.m in Sources */ = {isa = PBXBuildFile; fileRef = 85ED52280D0920E6003296D4 /* CommonType.m */; };
@@ -67,20 +65,22 @@
 		8DCEE14B182CDF24008A9259 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCEE148182CDF24008A9259 /* SSKeychainQuery.m */; };
 		8DCEE14D182CDF3D008A9259 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DCEE14C182CDF3D008A9259 /* Security.framework */; };
 		C62D093C1C4899D9029FB960 /* Pods_TextSuiteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92876B663639DDA5C4AC0062 /* Pods_TextSuiteTests.framework */; };
+		F59FF61122A75A3B00962C1C /* PSMMetalTabStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = F59FF5F322A75A3B00962C1C /* PSMMetalTabStyle.m */; };
+		F59FF61222A75A3B00962C1C /* PSMTabContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59FF5F522A75A3B00962C1C /* PSMTabContentViewController.m */; };
+		F59FF61322A75A3B00962C1C /* PSMTabBarControl.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F59FF5F622A75A3B00962C1C /* PSMTabBarControl.bundle */; };
+		F59FF61422A75A3B00962C1C /* PSMTabBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F59FF5F722A75A3B00962C1C /* PSMTabBarCell.m */; };
+		F59FF61522A75A3B00962C1C /* PSMTabBarControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F59FF5FE22A75A3B00962C1C /* PSMTabBarControl.m */; };
+		F59FF61622A75A3B00962C1C /* PSMOverflowPopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F59FF60022A75A3B00962C1C /* PSMOverflowPopUpButton.m */; };
+		F59FF61722A75A3B00962C1C /* NSBezierPath_AMShading.m in Sources */ = {isa = PBXBuildFile; fileRef = F59FF60122A75A3B00962C1C /* NSBezierPath_AMShading.m */; };
+		F59FF61822A75A3B00962C1C /* PSMTabDragWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59FF60222A75A3B00962C1C /* PSMTabDragWindowController.m */; };
+		F59FF61922A75A3B00962C1C /* PSMTabDragAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = F59FF60622A75A3B00962C1C /* PSMTabDragAssistant.m */; };
+		F59FF61A22A75A3B00962C1C /* PSMTabDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = F59FF60822A75A3B00962C1C /* PSMTabDragView.m */; };
+		F59FF61B22A75A3B00962C1C /* PSMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59FF60A22A75A3B00962C1C /* PSMTabBarController.m */; };
+		F59FF61C22A75A3B00962C1C /* PSMProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F59FF60B22A75A3B00962C1C /* PSMProgressIndicator.m */; };
+		F59FF61D22A75A3B00962C1C /* PSMRolloverButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F59FF60C22A75A3B00962C1C /* PSMRolloverButton.m */; };
+		F59FF61E22A75A3B00962C1C /* NSString_AITruncation.m in Sources */ = {isa = PBXBuildFile; fileRef = F59FF60D22A75A3B00962C1C /* NSString_AITruncation.m */; };
+		F59FF61F22A75A3B00962C1C /* PSMTabDragWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = F59FF60E22A75A3B00962C1C /* PSMTabDragWindow.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8540F7350CEB4435003B17D1 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				85B017D81291441F004F06E4 /* PSMTabBarControl.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		070D50410D9BF40400EC2660 /* YLImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLImageView.h; sourceTree = "<group>"; };
@@ -93,7 +93,6 @@
 		079E9BC90F08C4820089C9E2 /* YLFloatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLFloatingView.m; sourceTree = "<group>"; };
 		07B370670D6840600035E87D /* YLImagePreviewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLImagePreviewer.h; sourceTree = "<group>"; };
 		07B370680D6840600035E87D /* YLImagePreviewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLImagePreviewer.m; sourceTree = "<group>"; };
-		07B370790D6840B20035E87D /* HMBlkAppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HMBlkAppKit.framework; path = Dependencies/HMBlkAppKit.framework; sourceTree = "<group>"; };
 		07B73D8E0E5816FF00CC97D3 /* YLPluginLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLPluginLoader.h; sourceTree = "<group>"; };
 		07B73D8F0E5816FF00CC97D3 /* YLPluginLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLPluginLoader.m; sourceTree = "<group>"; };
 		07B73D9D0E581E2C00CC97D3 /* YLBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLBundle.h; sourceTree = "<group>"; };
@@ -158,7 +157,6 @@
 		85AF012A12912AD000728C12 /* nally.public.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = nally.public.pem; path = Deploy/nally.public.pem; sourceTree = SOURCE_ROOT; };
 		85B0176112913B30004F06E4 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/Preferences.xib; sourceTree = "<group>"; };
 		85B0176D12913CA5004F06E4 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		85B0177112913CF3004F06E4 /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = Dependencies/PSMTabBarControl.framework; sourceTree = "<group>"; };
 		85B247E60CEA1B840090046C /* DragonBall.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = DragonBall.icns; sourceTree = "<group>"; };
 		85CE53370D0D687800F55B7B /* YLSSH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLSSH.h; sourceTree = "<group>"; };
 		85CE53380D0D687800F55B7B /* YLSSH.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YLSSH.mm; sourceTree = "<group>"; };
@@ -183,6 +181,37 @@
 		A08B57BD7DE6A724807935E5 /* Pods-Nally.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nally.release.xcconfig"; path = "Target Support Files/Pods-Nally/Pods-Nally.release.xcconfig"; sourceTree = "<group>"; };
 		BE253C9002AD4C44181B4632 /* Pods-Nally.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nally.debug.xcconfig"; path = "Target Support Files/Pods-Nally/Pods-Nally.debug.xcconfig"; sourceTree = "<group>"; };
 		ED20D02CD762BDA0BA20E70E /* Pods-TextSuiteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextSuiteTests.debug.xcconfig"; path = "Target Support Files/Pods-TextSuiteTests/Pods-TextSuiteTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F59FF5F322A75A3B00962C1C /* PSMMetalTabStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMMetalTabStyle.m; sourceTree = "<group>"; };
+		F59FF5F422A75A3B00962C1C /* PSMTabDragWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMTabDragWindowController.h; sourceTree = "<group>"; };
+		F59FF5F522A75A3B00962C1C /* PSMTabContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMTabContentViewController.m; sourceTree = "<group>"; };
+		F59FF5F622A75A3B00962C1C /* PSMTabBarControl.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PSMTabBarControl.bundle; sourceTree = "<group>"; };
+		F59FF5F722A75A3B00962C1C /* PSMTabBarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMTabBarCell.m; sourceTree = "<group>"; };
+		F59FF5F822A75A3B00962C1C /* NSString_AITruncation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_AITruncation.h; sourceTree = "<group>"; };
+		F59FF5F922A75A3B00962C1C /* PSMTabDragWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMTabDragWindow.h; sourceTree = "<group>"; };
+		F59FF5FA22A75A3B00962C1C /* PSMRolloverButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMRolloverButton.h; sourceTree = "<group>"; };
+		F59FF5FB22A75A3B00962C1C /* PSMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMTabBarController.h; sourceTree = "<group>"; };
+		F59FF5FC22A75A3B00962C1C /* PSMProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMProgressIndicator.h; sourceTree = "<group>"; };
+		F59FF5FD22A75A3B00962C1C /* PSMTabDragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMTabDragView.h; sourceTree = "<group>"; };
+		F59FF5FE22A75A3B00962C1C /* PSMTabBarControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMTabBarControl.m; sourceTree = "<group>"; };
+		F59FF5FF22A75A3B00962C1C /* PSMTabDragAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMTabDragAssistant.h; sourceTree = "<group>"; };
+		F59FF60022A75A3B00962C1C /* PSMOverflowPopUpButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMOverflowPopUpButton.m; sourceTree = "<group>"; };
+		F59FF60122A75A3B00962C1C /* NSBezierPath_AMShading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBezierPath_AMShading.m; sourceTree = "<group>"; };
+		F59FF60222A75A3B00962C1C /* PSMTabDragWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMTabDragWindowController.m; sourceTree = "<group>"; };
+		F59FF60322A75A3B00962C1C /* PSMMetalTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMMetalTabStyle.h; sourceTree = "<group>"; };
+		F59FF60422A75A3B00962C1C /* PSMTabBarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMTabBarCell.h; sourceTree = "<group>"; };
+		F59FF60522A75A3B00962C1C /* PSMTabContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMTabContentViewController.h; sourceTree = "<group>"; };
+		F59FF60622A75A3B00962C1C /* PSMTabDragAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMTabDragAssistant.m; sourceTree = "<group>"; };
+		F59FF60722A75A3B00962C1C /* PSMTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMTabStyle.h; sourceTree = "<group>"; };
+		F59FF60822A75A3B00962C1C /* PSMTabDragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMTabDragView.m; sourceTree = "<group>"; };
+		F59FF60922A75A3B00962C1C /* PSMTabBarControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMTabBarControl.h; sourceTree = "<group>"; };
+		F59FF60A22A75A3B00962C1C /* PSMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMTabBarController.m; sourceTree = "<group>"; };
+		F59FF60B22A75A3B00962C1C /* PSMProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMProgressIndicator.m; sourceTree = "<group>"; };
+		F59FF60C22A75A3B00962C1C /* PSMRolloverButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMRolloverButton.m; sourceTree = "<group>"; };
+		F59FF60D22A75A3B00962C1C /* NSString_AITruncation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_AITruncation.m; sourceTree = "<group>"; };
+		F59FF60E22A75A3B00962C1C /* PSMTabDragWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMTabDragWindow.m; sourceTree = "<group>"; };
+		F59FF60F22A75A3B00962C1C /* NSBezierPath_AMShading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSBezierPath_AMShading.h; sourceTree = "<group>"; };
+		F59FF61022A75A3B00962C1C /* PSMOverflowPopUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMOverflowPopUpButton.h; sourceTree = "<group>"; };
+		F59FF62022A75A7000962C1C /* Nally.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nally.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,7 +230,6 @@
 				8DCEE14D182CDF3D008A9259 /* Security.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				850711AB0CA7A347005F4734 /* ApplicationServices.framework in Frameworks */,
-				85B0177212913CF3004F06E4 /* PSMTabBarControl.framework in Frameworks */,
 				6DE3C78FD8E3147F353D63F0 /* Pods_Nally.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,8 +279,6 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				85B0177112913CF3004F06E4 /* PSMTabBarControl.framework */,
-				07B370790D6840B20035E87D /* HMBlkAppKit.framework */,
 				85D259390D20FD48002BD294 /* libcrypto.dylib */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
@@ -272,6 +298,7 @@
 		29B97314FDCFA39411CA2CEA /* MacBlueTelnet */ = {
 			isa = PBXGroup;
 			children = (
+				F59FF62022A75A7000962C1C /* Nally.entitlements */,
 				8540FD0312AB8843000FE1D6 /* Tests */,
 				85AF0121129129E400728C12 /* Dependencies */,
 				080E96DDFE201D6D7F000001 /* Code */,
@@ -355,6 +382,7 @@
 		85AF0121129129E400728C12 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				F59FF5F222A75A3B00962C1C /* PSMTabBarControl */,
 				8DCEE142182CDF24008A9259 /* SSKeychain */,
 				85AF012212912A3300728C12 /* DBPrefsWindowController.h */,
 				85AF012312912A3300728C12 /* DBPrefsWindowController.m */,
@@ -440,6 +468,43 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F59FF5F222A75A3B00962C1C /* PSMTabBarControl */ = {
+			isa = PBXGroup;
+			children = (
+				F59FF5F322A75A3B00962C1C /* PSMMetalTabStyle.m */,
+				F59FF5F422A75A3B00962C1C /* PSMTabDragWindowController.h */,
+				F59FF5F522A75A3B00962C1C /* PSMTabContentViewController.m */,
+				F59FF5F622A75A3B00962C1C /* PSMTabBarControl.bundle */,
+				F59FF5F722A75A3B00962C1C /* PSMTabBarCell.m */,
+				F59FF5F822A75A3B00962C1C /* NSString_AITruncation.h */,
+				F59FF5F922A75A3B00962C1C /* PSMTabDragWindow.h */,
+				F59FF5FA22A75A3B00962C1C /* PSMRolloverButton.h */,
+				F59FF5FB22A75A3B00962C1C /* PSMTabBarController.h */,
+				F59FF5FC22A75A3B00962C1C /* PSMProgressIndicator.h */,
+				F59FF5FD22A75A3B00962C1C /* PSMTabDragView.h */,
+				F59FF5FE22A75A3B00962C1C /* PSMTabBarControl.m */,
+				F59FF5FF22A75A3B00962C1C /* PSMTabDragAssistant.h */,
+				F59FF60022A75A3B00962C1C /* PSMOverflowPopUpButton.m */,
+				F59FF60122A75A3B00962C1C /* NSBezierPath_AMShading.m */,
+				F59FF60222A75A3B00962C1C /* PSMTabDragWindowController.m */,
+				F59FF60322A75A3B00962C1C /* PSMMetalTabStyle.h */,
+				F59FF60422A75A3B00962C1C /* PSMTabBarCell.h */,
+				F59FF60522A75A3B00962C1C /* PSMTabContentViewController.h */,
+				F59FF60622A75A3B00962C1C /* PSMTabDragAssistant.m */,
+				F59FF60722A75A3B00962C1C /* PSMTabStyle.h */,
+				F59FF60822A75A3B00962C1C /* PSMTabDragView.m */,
+				F59FF60922A75A3B00962C1C /* PSMTabBarControl.h */,
+				F59FF60A22A75A3B00962C1C /* PSMTabBarController.m */,
+				F59FF60B22A75A3B00962C1C /* PSMProgressIndicator.m */,
+				F59FF60C22A75A3B00962C1C /* PSMRolloverButton.m */,
+				F59FF60D22A75A3B00962C1C /* NSString_AITruncation.m */,
+				F59FF60E22A75A3B00962C1C /* PSMTabDragWindow.m */,
+				F59FF60F22A75A3B00962C1C /* NSBezierPath_AMShading.h */,
+				F59FF61022A75A3B00962C1C /* PSMOverflowPopUpButton.h */,
+			);
+			path = PSMTabBarControl;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -467,7 +532,6 @@
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Nally" */;
 			buildPhases = (
 				CC596836F47D09C64216B596 /* [CP] Check Pods Manifest.lock */,
-				8540F7350CEB4435003B17D1 /* CopyFiles */,
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
@@ -491,6 +555,20 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0710;
+				TargetAttributes = {
+					8D1107260486CEB800E47090 = {
+						DevelopmentTeam = J9849FB53X;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HardenedRuntime = {
+								enabled = 0;
+							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Nally" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -538,6 +616,7 @@
 				85957EAF0CFF1176006E5E08 /* sleep.pdf in Resources */,
 				85137B330D02192800833909 /* Credits.rtf in Resources */,
 				85A0E73D0D06B72900ACA26F /* Localizable.strings in Resources */,
+				F59FF61322A75A3B00962C1C /* PSMTabBarControl.bundle in Resources */,
 				85AD6FE70D227F1D00992A1C /* DragonBall.icns in Resources */,
 				079E9BB00F08B9480089C9E2 /* HUDSave.tiff in Resources */,
 				079E9BB10F08B9480089C9E2 /* HUDSaveActive.tiff in Resources */,
@@ -663,30 +742,44 @@
 			buildActionMask = 2147483647;
 			files = (
 				8570AD5F0A3923A900838442 /* YLView.mm in Sources */,
+				F59FF61F22A75A3B00962C1C /* PSMTabDragWindow.m in Sources */,
 				85145AA10AB40053009FC710 /* YLTelnet.mm in Sources */,
 				85145AAE0AB40192009FC710 /* YLTerminal.mm in Sources */,
 				85F7F2090B06EE36000C4CDF /* YLLGlobalConfig.m in Sources */,
+				F59FF61722A75A3B00962C1C /* NSBezierPath_AMShading.m in Sources */,
 				856CDB260C9650550025C754 /* encoding.m in Sources */,
 				8DCEE14A182CDF24008A9259 /* SSKeychain.m in Sources */,
+				F59FF61422A75A3B00962C1C /* PSMTabBarCell.m in Sources */,
+				F59FF61122A75A3B00962C1C /* PSMMetalTabStyle.m in Sources */,
 				85ABEB810C966FEF008227D6 /* YLController.mm in Sources */,
 				858A54E60CAE78C8000E1AA7 /* YLMarkedTextView.m in Sources */,
+				F59FF61D22A75A3B00962C1C /* PSMRolloverButton.m in Sources */,
+				F59FF61222A75A3B00962C1C /* PSMTabContentViewController.m in Sources */,
+				F59FF61922A75A3B00962C1C /* PSMTabDragAssistant.m in Sources */,
 				85899C7B0CEED4E40031907F /* YLApplication.mm in Sources */,
 				8579CA2A0CF21D3D005A8353 /* YLSite.m in Sources */,
 				8DCEE14B182CDF24008A9259 /* SSKeychainQuery.m in Sources */,
 				859252F50CFD4F860054E3D6 /* YLContextualMenuManager.m in Sources */,
+				F59FF61822A75A3B00962C1C /* PSMTabDragWindowController.m in Sources */,
 				85E7825C0D057E8400BDA3FB /* YLEmoticon.m in Sources */,
 				85ED52290D0920E6003296D4 /* CommonType.m in Sources */,
 				85ED53220D092B5F003296D4 /* YLConnection.mm in Sources */,
+				F59FF61E22A75A3B00962C1C /* NSString_AITruncation.m in Sources */,
 				85CE53390D0D687800F55B7B /* YLSSH.mm in Sources */,
 				07B370690D6840600035E87D /* YLImagePreviewer.m in Sources */,
 				070D50430D9BF40400EC2660 /* YLImageView.m in Sources */,
 				07B73D900E5816FF00CC97D3 /* YLPluginLoader.m in Sources */,
 				079E9BCA0F08C4820089C9E2 /* YLFloatingView.m in Sources */,
+				F59FF61522A75A3B00962C1C /* PSMTabBarControl.m in Sources */,
 				071AE8710F12012100FDD307 /* YLExifController.m in Sources */,
 				622E339C223DD44800C6E21D /* NSString+ext.m in Sources */,
+				F59FF61A22A75A3B00962C1C /* PSMTabDragView.m in Sources */,
 				85AF012412912A3300728C12 /* DBPrefsWindowController.m in Sources */,
+				F59FF61B22A75A3B00962C1C /* PSMTabBarController.m in Sources */,
+				F59FF61622A75A3B00962C1C /* PSMOverflowPopUpButton.m in Sources */,
 				85AF012712912A8C00728C12 /* main.m in Sources */,
 				8540FBC512AB3D00000FE1D6 /* YLTextSuite.m in Sources */,
+				F59FF61C22A75A3B00962C1C /* PSMProgressIndicator.m in Sources */,
 				8540FBF412AB5938000FE1D6 /* YLRun.m in Sources */,
 				8540FBF712AB5AF4000FE1D6 /* YLLine.m in Sources */,
 				8540FCCC12AB81B9000FE1D6 /* YLApplicationKitAddition.m in Sources */,
@@ -808,9 +901,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE253C9002AD4C44181B4632 /* Pods-Nally.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Nally.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = J9849FB53X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -825,6 +922,7 @@
 				OTHER_CFLAGS = "-D__DUMPPACKET__";
 				PRODUCT_BUNDLE_IDENTIFIER = org.yllan.Nally;
 				PRODUCT_NAME = Nally;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
@@ -834,9 +932,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A08B57BD7DE6A724807935E5 /* Pods-Nally.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_ENTITLEMENTS = Nally.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = J9849FB53X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -850,6 +951,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = org.yllan.Nally;
 				PRODUCT_NAME = Nally;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = app;
