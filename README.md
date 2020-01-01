@@ -8,6 +8,10 @@ Build status :
 
 - ![](https://travis-ci.com/Rayer/nally.svg?branch=master) Master Branch
 
+## Announcement
+
+支援ssh連線，以ptt為例`ssh://ptt.cc`即可。
+
 ## Issue Tracking
 
 [YouTrack追蹤頁面](https://irisnode.myjetbrains.com/youtrack/)顯示了所有的開發中項目，如果有issue回報或者新功能request，請在GitHub的issue發出，接受後會移到YouTrack。
