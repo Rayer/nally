@@ -10,7 +10,7 @@ Build status :
 
 ## Announcement
 
-支援ssh連線，以ptt為例`ssh://ptt.cc`即可。
+支援ssh連線，以ptt為例`ssh://bbs@ptt.cc`即可。 注意，要有**bbs@**
 
 ## Issue Tracking
 
