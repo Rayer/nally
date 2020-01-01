@@ -10,11 +10,11 @@ Build status :
 
 ## Announcement
 
-支援ssh連線，以ptt為例`ssh://bbs@ptt.cc`即可。 注意，要有**bbs@**
+支援ssh連線，以ptt為例`ssh://bbs@ptt.cc`即可。 注意，要有**bbs@**。
 
 ## Issue Tracking
 
-[YouTrack追蹤頁面](https://irisnode.myjetbrains.com/youtrack/)顯示了所有的開發中項目，如果有issue回報或者新功能request，請在GitHub的issue發出，接受後會移到YouTrack。
+[YouTrack追蹤頁面](https://irisnode.myjetbrains.com/youtrack/)顯示了所有的開發中項目，如果有issue回報或者新功能request，請在GitHub的issue發出，或者也可以直接發在YouTrack。
 
 ## History
 
